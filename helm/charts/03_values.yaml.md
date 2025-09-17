@@ -1,10 +1,23 @@
 ## Value files are used by templates to dynamically generate manifest files.
 ## Defaul values can me modified, changed or removed.
 ## We can also uncomment the values
-- Example:
-   * Default service type is cluster IP, we can change it to node port.
 
-Default values for mychart.
+- Example:
+   * Default service type is cluster IP, change it to node port.
+    ```
+    cp values.yaml values.yaml.bkp
+    service:
+    type: NodePort
+    port: 80
+
+    helm install chakra mychart
+    kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}"
+    kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[2].address}"
+    kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services chakra-mychart;
+    ```
+    
+
+## Default values for mychart.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -13,6 +26,7 @@ replicaCount: 1
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
+
   repository: nginx
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
