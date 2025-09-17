@@ -16,3 +16,22 @@ cannot patch "mydb-apache" with kind Deployment: Deployment.apps "mydb-apache" i
 "Never", spec.template.spec.initContainers[0].imagePullPolicy: Unsupported value: "test": supported values: "Always", "IfNotPresent", "Never"]
 
 ```
+## Check history
+```
+helm history mydb
+REVISION        UPDATED                         STATUS          CHART           APP VERSION     DESCRIPTION
+
+
+1               Wed Sep 17 01:15:06 2025        superseded      apache-11.4.29  2.4.65          Install complete
+
+
+2               Wed Sep 17 01:15:45 2025        failed          apache-11.4.29  2.4.65          Upgrade "mydb" failed: cannot patch "mydb-apache"
+with kind Deployment: Deployment.apps "mydb-apache" is invalid: [spec.template.spec.containers[0].imagePullPolicy: Unsupported value: "test":
+supported values: "Always", "IfNotPresent", "Never", spec.template.spec.initContainers[0].imagePullPolicy: Unsupported value: "test": supported values: "Always", "IfNotPresent", "Never"]
+3               Wed Sep 17 01:15:47 2025        superseded      apache-11.4.29  2.4.65          Rollback to 1
+
+
+4               Wed Sep 17 01:18:43 2025        failed          apache-11.4.29  2.4.65          Upgrade "mydb" failed: cannot patch "mydb-apache"
+with kind Deployment: Deployment.apps "mydb-apache" is invalid: [spec.template.spec.containers[0].imagePullPolicy: Unsupported value: "test": supported values: "Always", "IfNotPresent", "Never", spec.template.spec.initContainers[0].imagePullPolicy: Unsupported value: "test": supported values: "Always", "IfNotPresent", "Never"]
+5               Wed Sep 17 01:18:44 2025        deployed        apache-11.4.29  2.4.65          Rollback to 3
+```
