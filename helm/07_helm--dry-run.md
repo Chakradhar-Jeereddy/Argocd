@@ -1,7 +1,7 @@
 ## Dry run does everything except deployment
 ## It is very powerfull to debug.
 - It parse the value files
-- Generates the yaml
+- Generates the yaml   (It communicates with kube API and validate the generated manifest files). Need connection to kube cluster).
 - Validates the yaml
 - Dumps the gernetated manifest files
 
