@@ -1,0 +1,29 @@
+## We can zip or package the charts that we created using the package command.
+- We can also collect dependencies using -u
+- By default it creates the chart under charts directory, we can provide different directory name using -d option.
+- Helm install can use this package to install the application, it itself untar the files.
+
+## Commands
+```
+helm package mychart -u
+Successfully packaged chart and saved it to: C:\Users\chakr\charts\mychart-0.1.0.tgz
+
+ls
+mychart/  mychart-0.1.0.tgz
+
+ helm install nako mychart-0.1.0.tgz
+NAME: nako
+LAST DEPLOYED: Wed Sep 17 09:03:16 2025
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+1. Get the application URL by running these commands:
+  export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services nako-mychart)
+  export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
+  echo http://$NODE_IP:$NODE_PORT
+```
+
+
+
+
