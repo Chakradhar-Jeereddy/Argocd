@@ -1,6 +1,6 @@
 ## We can zip or package the charts that we created using the package command.
 - We can also collect dependencies using -u
-- By default it creates the chart under charts directory, we can provide different directory name using -d option.
+- By default it creates the package under current directory, we can provide different directory name using -d option.
 - Helm install can use this package to install the application, it itself untar the files.
 
 ## Commands
@@ -9,7 +9,7 @@ helm package mychart -u
 Successfully packaged chart and saved it to: C:\Users\chakr\charts\mychart-0.1.0.tgz
 
 ls
-mychart/  mychart-0.1.0.tgz
+mychart/  mychart-0.1.0.tgz   => It is getting the version name from charts.yaml(metadata)
 
  helm install nako mychart-0.1.0.tgz
 NAME: nako
