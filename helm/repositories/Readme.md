@@ -43,6 +43,33 @@ NOTES:
   echo http://$NODE_IP:$NODE_PORT
 ```
 
+- Other way of installing helm
+- First pull the chart from repo and then install the chart.
+```
+helm pull myrepo/mychart
+helm repo list
+myrepo  http://127.0.0.1:8080/
+helm repo list
+helm install firstapp mychart-0.1.0.tgz
+helm list
+```
+
+## Create a new chart, by default it will be nginx chart, package the chart into a repo directory
+ - Update the index.yaml file, reload latest information of cache into repo.
+```
+helm repo list
+helm list
+helm create secondchart
+helm package secondchart -d chartsrepo
+helm repo index chartsrepo
+helm repo list
+helm repo update
+helm repo list
+ helm search repo myrepo
+NAME                    CHART VERSION   APP VERSION     DESCRIPTION
+myrepo/secondchart      0.1.0           1.16.0          A Helm chart for Kubernetes
+
+```
 
  
   
