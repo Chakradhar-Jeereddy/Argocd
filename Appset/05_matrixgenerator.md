@@ -42,3 +42,16 @@ spec:
          syncOptions:
           - CreateNamespace=true
 ```
+
+
+Why path works but repoURL doesn’t
+
+path → emitted by the Git generator, exists in the matrix context → can be used in the template. ✅
+
+repoURL → not automatically carried over in the matrix expansion because Argo CD does not include it in the template context when combined with cluster generator. ❌
+
+Think of it as:
+
+Git generator produces { path, path.basename, revision, repoURL }
+Cluster generator produces { name, server, labels.* }
+Matrix generator only merges keys that make sense for each combination, and Argo CD doesn’t automatically include repoURL in the final template.
