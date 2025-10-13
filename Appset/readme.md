@@ -1,5 +1,12 @@
 ## ApplicationSet
 - Genrators + template
+| Generator Type | Can access labels from Secrets? | Notes                                                                                                                                         |
+| -------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| **cluster**    | ✅ Yes                           | Reads from cluster Secrets (`argocd.argoproj.io/secret-type: cluster`) and can filter using labels/fields from those Secrets.                 |
+| **list**       | ❌ No                            | List generator uses hardcoded values in YAML, not from Kubernetes objects.                                                                    |
+| **git**        | ❌ No                            | Git generator reads files (manifests, directories, or app definitions) from a Git repo — it cannot access Secrets or labels from the cluster. |
+
+
 - Template defines how each app looks
 - Generator defines what to loop over
 - Reduces YAML duplication and creates app at scale.
