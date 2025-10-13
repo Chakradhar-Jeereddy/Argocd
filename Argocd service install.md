@@ -170,7 +170,7 @@ Exposed by using:
    Create an ingress resource that point into argocd-server service.
  c. Port-forward: Simply use this to access locally on you machine
 ```
-    kubectl port-farword svc/argocd-server -n argocd 8080
+kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 
 6. Open the browser https://localhost:8080/
