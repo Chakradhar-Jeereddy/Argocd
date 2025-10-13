@@ -80,7 +80,6 @@ template:
       repoURL: https://github.com/example/repo.git
       path: app
 ```
-***
 ***Automatically deploys the same app to all registered Argo CD clusters.***
 
 ```
@@ -94,8 +93,3 @@ generators:
     - clusters: {}
 ```
 ***Produces all combinations of env × cluster (e.g., dev on cluster1, prod on cluster2).***
-
-
-
-- 
-
