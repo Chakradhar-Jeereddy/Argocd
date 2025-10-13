@@ -1,4 +1,12 @@
 ### Cluster generator
+Assigment - 
+1) Deploy one application into all clusters
+   - Application name should include cluster name.
+   - Use one applicationset manifest with cluster generator to achieve this.
+2) Practice2: Deploy one application into all clusters with matching labels non-prod=true.
+   - Application name should include cluster name.
+   - Use one applicationset with cluster generator to achieve this.
+     
 Requirement - 
 1) Add local and remote cluster as secert with labels in argocd namespace.
 2) We can't use generator type cluster without adding cluster as secret.
