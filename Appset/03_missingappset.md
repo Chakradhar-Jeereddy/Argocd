@@ -40,6 +40,7 @@ spec:
         syncOptions:
         - CreateNamespace=true
 ```
+```
 kubectl get application guestbook-2 -o yaml -n argocd
 apiVersion: argoproj.io/v1alpha1
 kind: Application
