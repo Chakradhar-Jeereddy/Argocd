@@ -1,5 +1,6 @@
 ## ApplicationSet
 - Genrators + template
+  
 | Generator Type | Can access labels from Secrets? | Notes                                                                                                                                         |
 | -------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | **cluster**    | ✅ Yes                           | Reads from cluster Secrets (`argocd.argoproj.io/secret-type: cluster`) and can filter using labels/fields from those Secrets.                 |
