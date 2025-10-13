@@ -54,3 +54,17 @@ Source:
 SyncPolicy:         <none>
 
 ```
+```
+commands
+./argocd appset create appset.yaml
+ ./argocd app list
+./argocd appset list
+./argocd appset delete argocd/guestbook
+./argocd appset list
+Initial status of argocd is missing and outofsync.
+Do the sync, check diff left side is cluster manifest and right side is git manifest.
+Increase replica manually in kubecluster and check in argocd
+It will go outofsync in 3 minutes and will show the diff
+sync the state of cluster with git.
+The replica goes back to one pod.
+```
