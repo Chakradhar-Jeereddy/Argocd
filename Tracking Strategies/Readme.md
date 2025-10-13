@@ -18,9 +18,9 @@
   source:
    path: guestbook
    repoURL: "https://github.com/mabusaa/argocd-course-apps-definitions.git"
-   targetRevision: v1                        # this is tag
-   targetRevision: 24455bb6                  # this is commit id
-   targetRevision: main                      # asking to track a branch
+   targetRevision: v1                        # asking to track specific tag
+   targetRevision: 24455bb6                  # commit id
+   targetRevision: main                      # branch
    targetRevision: HEAD                      # Symbolic refrence
 ```
 - When source is helm
@@ -28,7 +28,7 @@
   source:
    path: guestbook
    repoURL: "https://github.com/mabusaa/argocd-course-apps-definitions.git"
-   targetRevision: 1.16.1                    # specific version
+   targetRevision: 1.16.1                    # asking to specific version
    targetRevision: '>3.0.0<4.1.0             # Recent version that is smaller than 4.1.0
    targetRevision: *                         # Latest version
 ```
