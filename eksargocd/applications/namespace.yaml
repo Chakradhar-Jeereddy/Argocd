@@ -12,7 +12,7 @@ spec:
   destination:
     server: 'https://23B0E7692CE36D8530B925334822A817.gr7.us-east-1.eks.amazonaws.com' # Target cluster URL (this represents the local cluster)
     namespace: clustermon # Target namespace for the deployed resources
-  SyncPolicy:
+  syncPolicy:
     automated:
       purn: true # if deleted from git orgocd also deletes it
       selfHeal: true  # Revert the changes that were done manually in cluster.
