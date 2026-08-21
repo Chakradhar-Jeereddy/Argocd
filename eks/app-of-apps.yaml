@@ -4,7 +4,7 @@ metadata:
   name: projectroot
   namespace: argocd # This must match the namespace where Argo CD is installed
 spec:
-  project: clustermon
+  project: default
   source:
     repoURL: 'https://github.com/Chakradhar-Jeereddy/Argocd.git'
     targetRevision: main # Specifies the branch, tag, or commit to sync to
