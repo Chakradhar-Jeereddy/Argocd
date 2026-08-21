@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: defence
-  labels:
-    environment: development
-    project: defence
