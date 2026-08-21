@@ -1,6 +1,34 @@
 ## Prerequisite
 - Need a running K8S cluster (minkube, docker desktop, kind, rancher desktop or full cluster).
 
+**Install Server**
+```
+aws eks update-kubeconfig --region us-east-1 --name roboshop-dev
+kubectl create namespace argocd
+kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl config set-context --current --namespace=argocd
+```
+
+**Install client**
+```
+curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
+rm argocd-linux-amd64
+```
+
+**Genrate password**
+```
+argocd admin initial-password -n argocd
+```
+
+**By default, Argo CD isn’t exposed outside the cluster. To access Argo CD from your browser or CLI, use one of the following methods:**
+##### Change the argocd-server service type to LoadBalancer:
+
+```
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl get svc argocd-server -n argocd -o=jsonpath='{.status.loadBalancer.ingress[0].ip}'
+```
+
 ## Installation types
 1. Non-HA setup suitable for evaluation or dev/testing environments, each component with one pod is created.
 2. HA setup is recommnded for production, needs 3 worker nodes. 3 Pods for each component.
