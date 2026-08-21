@@ -14,5 +14,5 @@ spec:
     namespace: clustermon # Target namespace for the deployed resources
   syncPolicy:
     automated:
-      purn: true # if deleted from git orgocd also deletes it
+      purne: true # if deleted from git orgocd also deletes it
       selfHeal: true  # Revert the changes that were done manually in cluster.
