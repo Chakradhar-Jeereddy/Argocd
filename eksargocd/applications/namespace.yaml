@@ -16,3 +16,5 @@ spec:
     automated:
       prune: true # if deleted from git orgocd also deletes it
       selfHeal: true  # Revert the changes that were done manually in cluster.
+    syncOptions:
+      - CreateNamespace=true    
