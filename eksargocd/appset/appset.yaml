@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: project-root
+  namespace: argocd # Must match the namespace where ArgoCD is installed
+spec:
+  project: clustermon # ArgoCD AppProject name
+  source:
+    repoURL: 'https://github.com/Chakradhar-Jeereddy/Argocd.git'
+    targetRevision: main # Git branch, tag, or commit SHA
+    path: eksargocd/appset # Path within the repository containing the manifests
+  destination:
+    server: 'https://kubernetes.default.svc' # Target cluster URL (this represents the local cluster)
+    namespace: clustermon # Target namespace for the deployed resources
+  syncPolicy:
+    automated:
+      prune: true # if deleted from git orgocd also deletes it
+      selfHeal: true  # Revert the changes that were done manually in cluster.
+    syncOptions:
+      - CreateNamespace=true   
